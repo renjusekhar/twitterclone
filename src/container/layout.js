@@ -1,8 +1,8 @@
 import React from 'react';
-import Searchbar from '../component/searchBar.js'
-import Searchbutton from '../component/searchButton.js'
+import Searchbar from '../component/SearchBar.js'
+import Searchbutton from '../component/SearchButton.js'
 
-import Searchtile from '../component/searchTile.js'
+import Searchtile from '../component/SearchTile.js'
 
 
 
@@ -11,7 +11,7 @@ export default function Maincontainer() {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-sm-3">
+                {/* <div className="col-sm-3">
                     <div className="panel panel-default">
                         <div className="panel-body">
 
@@ -25,7 +25,7 @@ export default function Maincontainer() {
                         </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="col-sm-6">
                     <div className="panel panel-info">
                         <div className="panel-heading">
@@ -41,8 +41,6 @@ export default function Maincontainer() {
                 <div className="col-sm-3">
                     <div className="panel panel-default">
                         <div className="panel-body">
-                        <Searchbar />
-
                         </div>
                     </div>
 
