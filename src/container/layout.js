@@ -1,52 +1,48 @@
-import React from 'react';
+import React, { Component} from 'react';
 import Searchbar from '../component/SearchBar.js'
 import Searchbutton from '../component/SearchButton.js'
-
 import Searchtile from '../component/SearchTile.js'
+import Nodata from '../component/Nodata.js'
 
+class Maincontainer extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            list: [
+                "Go to the store",
+                "Wash the dishes",
+                "Learn some code"
+            ]
+        }
+    }
 
-
-export default function Maincontainer() {
-    return (
-        <div className="container">
-            <div className="row">
-                {/* <div className="col-sm-3">
-                    <div className="panel panel-default">
-                        <div className="panel-body">
-
-                        <div className="row">
-						<div className="col-xs-3">
-							<h5>
-								<small>TWEETS</small>
-								<a href="#">1,545</a>
-							</h5>
-						</div>
-                        </div>
-                        </div>
-                    </div>
-                </div> */}
-                <div className="col-sm-6">
-                    <div className="panel panel-info">
-                        <div className="panel-heading">
-                            <div className="media">
-                            <Searchbar />
-                            <Searchbutton/>
-                            <Searchtile/>
-                            </div>
-                        </div>
+    render () {
+        return (
+            <div>
+                <div className="layout-wrapper">
+                    <div className="col-sm-6">
+                        <Searchbar />
+                        <Searchbutton />
+                        {/* <Nodata /> */}
+                        <Searchtile />
                     </div>
                 </div>
-
-                <div className="col-sm-3">
-                    <div className="panel panel-default">
-                        <div className="panel-body">
-                        </div>
+                <div className="layout-wrapper">
+                    <div className="col-sm-6">
+                        <Searchbar items={this.state.list} />
+                        <Searchbutton />
+                        {/* <Nodata /> */}
+                        <Searchtile />
                     </div>
-
-
                 </div>
             </div>
-        </div>
-    )
+        )
+
+    }
+
+
+
 }
+
+export default Maincontainer;
