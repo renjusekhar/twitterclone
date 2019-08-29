@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 class Searchbar extends Component {
   constructor(props) {
     super(props);
+    const n = this.props.items;
     this.state = {
       filtered: []
+        
     };
     this.handleChange = this.handleChange.bind(this)
 
@@ -31,11 +33,12 @@ class Searchbar extends Component {
     let newList = [];
     if (e.target.value !== "") {
       currentList = this.props.items;
-      newList = currentList.filter(item => {
-        const lc = item.toLowerCase();
-        const filter = e.target.value.toLowerCase();
-        return lc.includes(filter);
-      });
+  
+      let val = e.target.value.toLowerCase();
+      let matches = currentList.filter(v => v.name.toLowerCase().includes(val));
+      this.props.test(matches);  
+
+
     } else {
       newList = this.props.items;
     }
@@ -44,17 +47,19 @@ class Searchbar extends Component {
     });
   }
 
-render () {
-  return (
+  render() {
+    return (
 
-    <div className="search-bar-wrap" >
-      <input type="text" className="form-control" onChange={this.handleChange} placeholder="searchbar" />
-    </div>
+      <div className="search-container">
+        <form action="/action_page.php">
+          <input type="text" className="form-control" onChange={this.handleChange} placeholder="Search.." name="search" />
+        </form>
+      </div>
 
-  )
+    )
 
-}
- 
+  }
+
 }
 
 export default Searchbar;
