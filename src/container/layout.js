@@ -30,25 +30,6 @@ class Maincontainer extends Component {
             { "name": "Shantanu Narayen", "img": Shantanu, "Details": "Shantanu Narayen is an Indian American business executive, and the chairman and CEO of Adobe Inc. Prior to this he had been the president and chief operating officer since 2005" },
             { "name": "Beyonce Knowles", "img": Beyonce, "Details": "Beyoncé Giselle Knowles-Carter is an American singer, songwriter and actress. Born and raised in Houston, Texas, Beyoncé performed in various singing and dancing competitions as a child" },
             { "name": "Nawazuddin Siddique", "img": Nawazuddin, "Details": "Nawazuddin Siddiqui is an Indian actor, known for his works in Hindi cinema. An alumnus of the National School of Drama," },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
-                // { "name": "", "img": Land, "Details": "" },
             ]
         }
         this.changes = this.changes.bind(this);
@@ -63,13 +44,12 @@ class Maincontainer extends Component {
     render() {
         return (
             <div className="main-wrapper">
-                <Searchbar items={this.state.data} test={this.changes} />
-                <Searchbutton />
+                <Searchbar items={this.state.data} filteredData={this.changes} />
                 {!this.state.iterator ? (
                     <Nodata />
                 ) : (this.state.iterator.map((val) =>
-                            <Searchtile key={val.name} filteredItem={val} />
-                        )
+                    <Searchtile key={val.name} filteredItem={val} />
+                )
                     )}
             </div>
         )

@@ -4,8 +4,11 @@
   margin: 20px auto;
   padding: 15px;
 }
+.search-container{
+    overflow: hidden;
+}
 .search-container .form-control{
-  width: 87%;
+  width: 100%;
   float: left;
   border-radius: 0;
 }
@@ -30,8 +33,21 @@
     color: #454444;
 }
 .card-wrap .img-wrap {
+    width: 100%;
     min-height: 150px;
     border: 1px solid #eeeaea;
+}
+.card-wrap .img-wrap img {
+    width: 100%;
+}
+.card-wrap .nodata-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+.card-wrap .nodata-wrap p{
+    margin: 0;
 }
 .view-wrap {
     font-size: 11px;

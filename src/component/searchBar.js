@@ -6,10 +6,8 @@ class Searchbar extends Component {
     const n = this.props.items;
     this.state = {
       filtered: []
-        
     };
     this.handleChange = this.handleChange.bind(this)
-
   }
 
   componentDidMount() {
@@ -24,23 +22,22 @@ class Searchbar extends Component {
     });
   }
 
-
-
-
-
   handleChange(e) {
     let currentList = [];
     let newList = [];
     if (e.target.value !== "") {
       currentList = this.props.items;
-  
       let val = e.target.value.toLowerCase();
       let matches = currentList.filter(v => v.name.toLowerCase().includes(val));
-      this.props.test(matches);  
-
-
+      if (matches.length > 0) {
+        this.props.filteredData(matches);
+      }
+      else {
+        this.props.filteredData(null);
+      }
     } else {
-      newList = this.props.items;
+      this.props.filteredData(null);
+      
     }
     this.setState({
       filtered: newList
